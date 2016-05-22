@@ -3,7 +3,7 @@ FROM mhart/alpine-node:4.4.4
 RUN apk add --update git make python gcc g++
 
 VOLUME /root/.npm
-RUN npm i -g bower nodemon
+RUN npm i -g bower grunt-cli nodemon
 
 RUN mkdir -p /app/server
 WORKDIR /app/server
