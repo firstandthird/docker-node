@@ -10,7 +10,7 @@ WORKDIR /app/server
 ENV PATH /app/node_modules/.bin:$PATH
 
 ONBUILD COPY package.json /app/
-ONBUILD RUN cd /app && npm install
+ONBUILD RUN cd /app && npm install --silent
 
 ONBUILD ADD . /app/server
 
