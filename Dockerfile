@@ -1,5 +1,7 @@
 FROM mhart/alpine-node:4.4.4
 
+RUN apk add --update git make python gcc g++
+
 RUN npm i -g nodemon bower grunt-cli
 
 RUN mkdir -p /app
