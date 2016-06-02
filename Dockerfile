@@ -8,7 +8,7 @@ RUN mkdir -p /app
 WORKDIR /app
 
 ONBUILD COPY package.json /app/
-ONBUILD RUN npm install --silent
+ONBUILD RUN npm install --quiet
 
 ONBUILD ADD . /app
 
