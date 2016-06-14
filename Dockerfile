@@ -7,7 +7,7 @@ RUN npm i -g nodemon
 RUN mkdir -p /app
 WORKDIR /app
 
-ONBUILD COPY package.json /app/
+ONBUILD ADD package.json /app/
 ONBUILD RUN npm install --quiet
 
 ONBUILD ADD . /app
