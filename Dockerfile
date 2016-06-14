@@ -8,7 +8,7 @@ RUN mkdir -p /app
 WORKDIR /app
 
 RUN npm install node-sass --silent
-ONBUILD COPY package.json /app/
+ONBUILD ADD package.json /app/
 ONBUILD RUN npm install --quiet
 
 ONBUILD ADD bower.json /app/bower.json
