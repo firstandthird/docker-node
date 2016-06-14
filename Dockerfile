@@ -25,7 +25,7 @@ RUN npm install \
   babel-types@^6.6.5 \
   babelify-es6-polyfill@^1.0.4 --quiet
 
-ONBUILD COPY package.json /app/
+ONBUILD ADD package.json /app/
 ONBUILD RUN npm install --quiet
 
 ONBUILD ADD bower.json /app/bower.json
