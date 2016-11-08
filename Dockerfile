@@ -5,9 +5,9 @@ RUN apk add --update git make python gcc g++
 RUN mkdir -p /app
 WORKDIR /app
 
-COPY package.json /app
-RUN npm install --silent
+ONBUILD COPY package.json /app
+ONBUILD RUN npm install --silent
 
-COPY . /app
+ONBUILD COPY . /app
 
 CMD ["npm", "start"]
