@@ -8,11 +8,7 @@ ENV HOME=/home/app
 
 WORKDIR $HOME/src
 RUN chown -R node:node $HOME
+
 USER node
-
-COPY package.json $HOME/src
-RUN npm install --silent --production
-
-COPY . $HOME/src
 
 CMD ["dumb-init", "npm", "start"]

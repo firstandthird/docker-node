@@ -10,9 +10,9 @@ WORKDIR $HOME/src
 RUN chown -R node:node $HOME
 USER node
 
-COPY package.json $HOME/src
-RUN npm install --silent --production
+ONBUILD COPY package.json $HOME/src
+ONBUILD RUN npm install --silent --production
 
-COPY . $HOME/src
+ONBUILD COPY . $HOME/src
 
 CMD ["dumb-init", "npm", "start"]
