@@ -1,10 +1,14 @@
-FROM mhart/alpine-node:6.7
+FROM node:6.10-alpine
 
-RUN apk add --update git make python gcc g++
+ADD https://github.com/Yelp/dumb-init/releases/download/v1.1.1/dumb-init_1.1.1_amd64 /usr/local/bin/dumb-init
+RUN chmod +x /usr/local/bin/dumb-init
 
-RUN mkdir -p /app
-WORKDIR /app
+# Sets the HOME environment variable.
+ENV HOME=/home/app
 
-COPY . /app
+WORKDIR $HOME/src
+RUN chown -R node:node $HOME
 
-CMD ["npm", "start"]
+USER node
+
+CMD ["dumb-init", "npm", "start"]
