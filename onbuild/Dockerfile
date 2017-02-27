@@ -9,12 +9,12 @@ RUN apk add --update --no-cache --virtual git
 ENV HOME=/home/app
 
 WORKDIR $HOME/src
-RUN chown -R node:node $HOME
-USER node
 
 ONBUILD COPY package.json $HOME/src
 ONBUILD RUN npm install --silent --production
 
 ONBUILD COPY . $HOME/src
+ONBUILD RUN chown -R node:node $HOME
+ONBUILD USER node
 
 CMD ["dumb-init", "npm", "start"]
