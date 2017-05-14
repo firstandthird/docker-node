@@ -10,7 +10,7 @@ ENV HOME=/home/app
 
 WORKDIR $HOME/src
 
-ONBUILD COPY package.json $HOME/src
+ONBUILD COPY package.json npm-shrinkwrap.* $HOME/src
 ONBUILD RUN npm install --silent --production
 
 ONBUILD COPY . $HOME/src
