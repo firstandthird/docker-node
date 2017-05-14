@@ -5,6 +5,7 @@ RUN chmod +x /usr/local/bin/dumb-init
 
 # Sets the HOME environment variable.
 ENV HOME=/home/app
+ENV PATH=/home/app/src/node_modules/.bin:$PATH
 
 WORKDIR $HOME/src
 RUN chown -R node:node $HOME

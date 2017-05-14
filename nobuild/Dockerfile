@@ -7,6 +7,7 @@ RUN apk add --update --no-cache --virtual git
 
 # Sets the HOME environment variable.
 ENV HOME=/home/app
+ENV PATH=/home/app/src/node_modules/.bin:$PATH
 
 WORKDIR $HOME/src
 RUN chown -R node:node $HOME
