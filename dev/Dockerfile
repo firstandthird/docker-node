@@ -5,15 +5,15 @@ RUN chmod +x /usr/local/bin/dumb-init
 
 RUN apk add --update --no-cache --virtual git
 
-RUN npm i -g nodemon
-
 # Sets the HOME environment variable.
 ENV HOME=/home/app
 ENV PATH=/home/app/src/node_modules/.bin:$PATH
 
 WORKDIR $HOME/src
-RUN chown -R node:node $HOME
+RUN chown -R node:node $HOME && chown -R node:node /usr/local
 
 USER node
+
+RUN npm i -g nodemon
 
 CMD ["dumb-init", "nodemon", "-x", "npm", "start"]
