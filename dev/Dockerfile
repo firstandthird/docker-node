@@ -19,6 +19,6 @@ RUN npm i -g nodemon
 
 EXPOSE 8080
 
-COPY start /start
+COPY ./start /start
 
 CMD ["dumb-init", "/start"]
