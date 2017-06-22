@@ -8,6 +8,7 @@ RUN apk add --update --no-cache --virtual git
 # Sets the HOME environment variable.
 ENV HOME=/home/app
 ENV PATH=/home/app/src/node_modules/.bin:$PATH
+ENV PORT=8080
 
 WORKDIR $HOME/src
 RUN chown -R node:node $HOME && chown -R node:node /usr/local
@@ -16,4 +17,8 @@ USER node
 
 RUN npm i -g nodemon
 
-CMD ["dumb-init", "nodemon", "-x", "npm", "start"]
+EXPOSE 8080
+
+COPY start /start
+
+CMD ["dumb-init", "/start"]

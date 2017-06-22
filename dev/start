@@ -1,0 +1,6 @@
+#!/bin/bash
+
+npm install && \
+  npm prune && \
+  nodemon -x npm start
+
