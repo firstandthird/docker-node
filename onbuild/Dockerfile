@@ -11,8 +11,8 @@ ENV PATH=/home/app/src/node_modules/.bin:$PATH
 
 WORKDIR $HOME/src
 
-ONBUILD COPY package.json npm-shrinkwrap.* $HOME/src
-ONBUILD RUN npm install --silent --production
+ONBUILD COPY package.json package-lock.* $HOME/src
+ONBUILD RUN npm install --silent --production && npm cache clean --force
 
 ONBUILD COPY . $HOME/src
 
