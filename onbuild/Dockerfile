@@ -15,7 +15,5 @@ ONBUILD COPY package.json npm-shrinkwrap.* $HOME/src
 ONBUILD RUN npm install --silent --production
 
 ONBUILD COPY . $HOME/src
-ONBUILD RUN chown -R node:node $HOME
-ONBUILD USER node
 
 CMD ["dumb-init", "npm", "start"]

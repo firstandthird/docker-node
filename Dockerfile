@@ -10,8 +10,5 @@ ENV HOME=/home/app
 ENV PATH=/home/app/src/node_modules/.bin:$PATH
 
 WORKDIR $HOME/src
-RUN chown -R node:node $HOME
-
-USER node
 
 CMD ["dumb-init", "npm", "start"]
