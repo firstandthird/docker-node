@@ -17,6 +17,7 @@ RUN npm install -g nodemon
 WORKDIR $HOME/src
 RUN chown -R node:node $HOME && chown -R node:node /usr/local
 
+RUN mkdir -p $HOME
 RUN echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > $HOME/.npmrc
 
 USER node

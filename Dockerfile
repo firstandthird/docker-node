@@ -11,6 +11,7 @@ RUN yarn global add npm
 ENV HOME=/home/app
 ENV PATH=/home/app/src/node_modules/.bin:$PATH
 
+RUN mkdir -p $HOME
 RUN echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > $HOME/.npmrc
 
 WORKDIR $HOME/src
