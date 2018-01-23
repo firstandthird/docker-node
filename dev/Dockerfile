@@ -11,14 +11,15 @@ RUN yarn global add npm
 ENV HOME=/home/app
 ENV PATH=/home/app/src/node_modules/.bin:$PATH
 ENV PORT=8080
+ENV NPM_TOKEN=0
+
+RUN mkdir -p $HOME
+RUN echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > $HOME/.npmrc
 
 RUN npm install -g nodemon
 
 WORKDIR $HOME/src
 RUN chown -R node:node $HOME && chown -R node:node /usr/local
-
-RUN mkdir -p $HOME
-RUN echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > $HOME/.npmrc
 
 USER node
 

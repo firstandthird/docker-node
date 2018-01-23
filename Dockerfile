@@ -10,6 +10,7 @@ RUN yarn global add npm
 # Sets the HOME environment variable.
 ENV HOME=/home/app
 ENV PATH=/home/app/src/node_modules/.bin:$PATH
+ENV NPM_TOKEN=0
 
 RUN mkdir -p $HOME
 RUN echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > $HOME/.npmrc
