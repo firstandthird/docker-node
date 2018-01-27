@@ -1,6 +1,6 @@
 #!/bin/sh
 
-npm install && \
-  npm prune && \
+npm prune && \
+  npm install && \
   nodemon -x npm start
 
