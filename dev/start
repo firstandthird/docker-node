@@ -1,6 +1,16 @@
 #!/bin/sh
 
-npm prune && \
-  npm install && \
-  nodemon -x npm start
+if [[ -z "$NPM_CMD" ]]; then
+  NPM_CMD=start
+fi
+
+if [[ "$NODEMON" == "1" ]]; then
+  npm prune && \
+    npm install && \
+    nodemon -x npm $NPM_CMD
+else
+  npm prune && \
+    npm install && \
+    npm $NPM_CMD
+fi
 
