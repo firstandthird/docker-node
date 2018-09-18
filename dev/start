@@ -6,11 +6,11 @@ fi
 
 if [[ "$NODEMON" == "1" ]]; then
   npm prune && \
-    npm install && \
-    nodemon -x npm $NPM_CMD
+    npm ci && \
+    nodemon --inspect=0.0.0.0:9229 -x npm $NPM_CMD
 else
   npm prune && \
-    npm install && \
+    npm ci && \
     npm $NPM_CMD
 fi
 
