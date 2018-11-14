@@ -1,3 +1,4 @@
+#https://hub.docker.com/r/library/node/tags/
 FROM node:10.10-alpine
 
 ADD https://github.com/Yelp/dumb-init/releases/download/v1.2.2/dumb-init_1.2.2_amd64 /usr/local/bin/dumb-init
@@ -5,6 +6,7 @@ RUN chmod +x /usr/local/bin/dumb-init
 
 RUN apk add --update --no-cache git curl
 
+ARG CMD="npm start"
 ARG PORT=8080
 ARG NODE_ENV=production
 ARG GIT_COMMIT=unspecified
@@ -35,4 +37,4 @@ EXPOSE $PORT
 
 WORKDIR $HOME/src
 
-CMD ["dumb-init", "npm", "start"]
+CMD dumb-init $CMD

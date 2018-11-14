@@ -1,0 +1,22 @@
+#!/bin/bash
+
+VERSION=$1
+
+if [[ -z "$VERSION" ]]; then
+  echo "must pass in version"
+  exit 1
+fi
+
+SHOULD_PUSH=$2
+
+docker build -t firstandthird/node:$VERSION --build-arg VERSION=$VERSION .
+cd dev
+docker build -t firstandthird/node:$VERSION-dev --build-arg VERSION=$VERSION .
+cd ../onbuild
+docker build -t firstandthird/node:$VERSION-onbuild --build-arg VERSION=$VERSION .
+
+if [[ "$SHOULD_PUSH" == "push" ]]; then
+  docker push firstandthird:$VERSION
+  docker push firstandthird:$VERSION-dev
+  docker push firstandthird:$VERSION-onbuild
+fi

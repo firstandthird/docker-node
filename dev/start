@@ -5,12 +5,8 @@ if [[ -z "$NPM_CMD" ]]; then
 fi
 
 if [[ "$NODEMON" == "1" ]]; then
-  npm prune && \
-    npm ci && \
-    nodemon --inspect=0.0.0.0:9229 -x npm $NPM_CMD
+  nodemon --inspect=0.0.0.0:9229 -x npm $NPM_CMD
 else
-  npm prune && \
-    npm ci && \
-    npm $NPM_CMD
+  npm $NPM_CMD
 fi
 
