@@ -16,7 +16,7 @@ cd ../onbuild
 docker build -t firstandthird/node:$VERSION-onbuild --build-arg VERSION=$VERSION .
 
 if [[ "$SHOULD_PUSH" == "push" ]]; then
-  docker push firstandthird:$VERSION
-  docker push firstandthird:$VERSION-dev
-  docker push firstandthird:$VERSION-onbuild
+  docker push firstandthird/node:$VERSION
+  docker push firstandthird/node:$VERSION-dev
+  docker push firstandthird/node:$VERSION-onbuild
 fi

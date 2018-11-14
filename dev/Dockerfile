@@ -2,6 +2,7 @@ ARG VERSION=unspecified
 FROM firstandthird/node:$VERSION
 
 RUN npm i nodemon@latest -g
+ENV NODEMON=1
 
 ONBUILD COPY package.json package-lock.* $HOME/src/
 ONBUILD RUN npm ci --silent && npm cache clean --force
