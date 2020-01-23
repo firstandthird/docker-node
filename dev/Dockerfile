@@ -5,7 +5,7 @@ RUN npm i nodemon@latest -g
 ENV NODEMON=1
 
 ONBUILD COPY package.json package-lock.* $HOME/src/
-ONBUILD RUN npm ci --silent && npm cache clean --force
+ONBUILD RUN npm ci --loglevel error && npm cache clean --force
 
 EXPOSE $PORT 9229 9230
 
