@@ -1,6 +1,8 @@
 ARG VERSION=unspecified
 FROM firstandthird/node:$VERSION
 
+RUN apk add --update --no-cache git curl python alpine-sdk
+
 RUN npm i nodemon@latest -g
 ENV NODEMON=1
 
